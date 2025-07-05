@@ -1,0 +1,36 @@
+<!-- hoadon.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hóa đơn thanh toán</title>
+  <link rel="stylesheet" href="a.css">
+  <style>
+    #invoice {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+    h2 { text-align: center; }
+    .center { text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div id="invoice">
+    <h2>🐱 CatShop - Hóa đơn thanh toán</h2>
+    <p><strong>Mã đơn:</strong> <span id="order-id"></span></p>
+    <p><strong>Ngày:</strong> <span id="order-date"></span></p>
+    <ul id="order-items"></ul>
+    <p><strong>Tổng tiền:</strong> <span id="order-total"></span></p>
+
+    <div class="center">
+      <button onclick="window.print()">🖨️ In hóa đơn</button>
+      <a href="index.html">← Quay lại trang chủ</a>
+    </div>
+  </div>
+
+  <script src="a.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ hàng - CatShop</title>
+  <link rel="stylesheet" href="a.css">
+</head>
+<body onload="checkLogin()">
+  <header>
+    <h1>🛒 Giỏ hàng của bạn</h1>
+    <nav>
+      <a href="index.html">← Tiếp tục mua sắm</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="cart-container">
+      <!-- Sản phẩm trong giỏ sẽ được hiển thị ở đây bằng JavaScript -->
+    </div>
+
+    <div class="summary">
+      <p><strong>Tổng sản phẩm:</strong> <span id="total-items">0</span></p>
+      <p><strong>Số lượng:</strong> <span id="total-qty">0</span></p>
+      <p><strong>Tổng tiền:</strong> <span id="total">0₫</span></p>
+      <div class="actions">
+        <a href="thanhtoan.html">
+          <button>💳 Thanh toán</button>
+        </a>
+        <button onclick="printInvoiceFromCart()">🖨️ In hóa đơn tạm</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CatShop - Mèo là chân ái 🐾</p>
+  </footer>
+
+  <script src="a.js"></script>
+</body>
+</html>

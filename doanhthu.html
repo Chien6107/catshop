@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>📊 Doanh thu - CatShop</title>
+  <link rel="stylesheet" href="a.css">
+</head>
+<body>
+  <header>
+    <h1>📊 Thống kê doanh thu</h1>
+    <nav>
+      <a href="index.html">← Trang chủ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="summary">
+      <p><strong>Tổng đơn hàng:</strong> <span id="total-orders">0</span></p>
+      <p><strong>Tổng sản phẩm bán:</strong> <span id="total-products">0</span></p>
+      <p><strong>Tổng doanh thu:</strong> <span id="total-revenue">0₫</span></p>
+      <button onclick="renderRevenueReport()">🔄 Cập nhật thống kê</button>
+    </section>
+
+    <h2>🧾 Danh sách đơn hàng</h2>
+    <div id="order-list">
+      <!-- Đơn hàng sẽ được render tại đây -->
+    </div>
+  </main>
+
+  <script src="a.js"></script>
+</body>
+</html>

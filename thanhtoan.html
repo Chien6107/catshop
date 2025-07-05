@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thanh Toán - CatShop</title>
+  <link rel="stylesheet" href="a.css">
+</head>
+<body onload="checkLogin()">
+  <header>
+    <h1>💳 Thanh toán CatShop</h1>
+    <nav>
+      <a href="index.html">← Quay lại mua hàng</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="checkout-section">
+      <h2>Thông tin thanh toán</h2>
+      <form id="payment-form" onsubmit="handlePayment(event)">
+        <label>
+          Tên chủ thẻ:
+          <input type="text" required>
+        </label>
+        <label>
+          Số thẻ:
+          <input type="text" maxlength="16" pattern="\d{16}" required>
+        </label>
+        <label>
+          Ngày hết hạn:
+          <input type="month" required>
+        </label>
+        <label>
+          Mã CVV:
+          <input type="text" maxlength="3" pattern="\d{3}" required>
+        </label>
+        <button type="submit">Xác nhận thanh toán</button>
+      </form>
+      <div id="payment-result"></div>
+    </section>
+  </main>
+
+  <script src="a.js"></script>
+</body>
+</html>
