@@ -1,9 +1,28 @@
 // ---------- DỮ LIỆU ----------
 const products = [
-  { id: 1, name: "Áo thun", price: 120000 },
-  { id: 2, name: "Quần jeans", price: 250000 },
-  { id: 3, name: "Giày thể thao", price: 450000 },
-  { id: 4, name: "Mũ lưỡi trai", price: 90000 }
+  { id: 1, name: "Bánh tráng trộn", price: 15000, image: "images/banhtrangtron.jfif" },
+  { id: 2, name: "Trà sữa trân châu", price: 30000, image: "images/trasua.jfif" },
+  { id: 3, name: "Bắp xào tôm khô", price: 20000, image: "images/bapxao.jfif" },
+  { id: 4, name: "Khoai tây chiên", price: 25000, image: "images/khoaitaychien.jfif" },
+  { id: 5, name: "Cá viên chiên", price: 20000, image: "images/cavienchien.jfif" },
+  { id: 6, name: "Phô mai que", price: 25000, image: "images/phomaique.jpg" },
+  { id: 7, name: "Gà rán mini", price: 35000, image: "images/garan.jpg" },
+  { id: 8, name: "Xúc xích nướng", price: 20000, image: "images/xucxich.jpg" },
+  { id: 9, name: "Nem chua rán", price: 25000, image: "images/nemchua.jpg" },
+  { id: 10, name: "Trà đào cam sả", price: 28000, image: "images/tradao.jpg" },
+  { id: 11, name: "Sữa tươi trân châu đường đen", price: 32000, image: "images/suatrua.jpg" },
+  { id: 12, name: "Chè khúc bạch", price: 25000, image: "images/chekhuubach.jpg" },
+  { id: 13, name: "Bánh flan", price: 12000, image: "images/banhflan.jpg" },
+  { id: 14, name: "Bánh chuối chiên", price: 10000, image: "images/chuoi.jpg" },
+  { id: 15, name: "Bánh tiêu", price: 5000, image: "images/banhtieu.jpg" },
+  { id: 16, name: "Bánh gạo cay", price: 18000, image: "images/banhgao.jpg" },
+  { id: 17, name: "Tào phớ", price: 15000, image: "images/taopho.jpg" },
+  { id: 18, name: "Chân gà sả tắc", price: 40000, image: "images/changa.jpg" },
+  { id: 19, name: "Khô gà lá chanh", price: 35000, image: "images/khoga.jpg" },
+  { id: 20, name: "Sữa chua dẻo", price: 15000, image: "images/suachuadeo.jpg" },
+  { id: 21, name: "Trà tắc", price: 15000, image: "images/tratac.jpg" },
+  { id: 22, name: "Cà phê sữa", price: 15000, image: "images/caphesua.jpg" },
+  { id: 23, name: "Cà phê muối", price: 22000, image: "images/caphemo.jpg" }
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -31,6 +50,7 @@ function renderProducts() {
     const div = document.createElement("div");
     div.className = "product";
     div.innerHTML = `
+      <img src="${p.image}" alt="${p.name}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
       <h3>${p.name}</h3>
       <p>${p.price.toLocaleString()}₫</p>
       <button onclick="addToCart(${p.id})">Thêm vào giỏ</button>
@@ -41,6 +61,7 @@ function renderProducts() {
   updateCount();
 }
 
+// ---------- GIỎ HÀNG ----------
 function addToCart(id) {
   const sp = products.find(p => p.id === id);
   const item = cart.find(i => i.id === id);
@@ -51,7 +72,12 @@ function addToCart(id) {
   updateCount();
 }
 
-// ---------- GIỎ HÀNG ----------
+function updateCount() {
+  const count = cart.reduce((sum, i) => sum + i.qty, 0);
+  const cc = document.getElementById("cart-count");
+  if (cc) cc.textContent = count;
+}
+
 function renderCart() {
   const container = document.getElementById("cart-container");
   if (!container) return;
@@ -67,7 +93,7 @@ function renderCart() {
 
     html += `
       <div>
-        ${item.name} x${item.qty} = ${itemTotal.toLocaleString()}₫ 
+        ${item.name} x${item.qty} = ${itemTotal.toLocaleString()}₫
         <button onclick="removeItem(${item.id})">❌</button>
       </div>
     `;
@@ -75,15 +101,12 @@ function renderCart() {
 
   container.innerHTML = html;
 
-  if (document.getElementById("total")) {
-    document.getElementById("total").textContent = total.toLocaleString() + "₫";
-  }
-  if (document.getElementById("total-qty")) {
-    document.getElementById("total-qty").textContent = totalQty;
-  }
-  if (document.getElementById("total-items")) {
-    document.getElementById("total-items").textContent = cart.length;
-  }
+  const t = document.getElementById("total");
+  if (t) t.textContent = total.toLocaleString() + "₫";
+  const tq = document.getElementById("total-qty");
+  if (tq) tq.textContent = totalQty;
+  const ti = document.getElementById("total-items");
+  if (ti) ti.textContent = cart.length;
 }
 
 function removeItem(id) {
@@ -91,12 +114,6 @@ function removeItem(id) {
   localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
   updateCount();
-}
-
-function updateCount() {
-  const count = cart.reduce((sum, i) => sum + i.qty, 0);
-  const cc = document.getElementById("cart-count");
-  if (cc) cc.textContent = count;
 }
 
 // ---------- THANH TOÁN ----------
@@ -122,7 +139,6 @@ function handlePayment(event) {
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
   orders.push(order);
   localStorage.setItem("orders", JSON.stringify(orders));
-
   localStorage.setItem("latestOrderId", order.id);
 
   cart = [];

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giới thiệu CatShop</title>
+  <link rel="stylesheet" href="a.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffc6f3;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    h1, h2 {
+      color: #e67e22;
+      text-align: center;
+    }
+
+    .gioi-thieu ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .gioi-thieu ul li {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .ban-do iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .lien-he {
+      margin-top: 40px;
+    }
+
+    .lien-he ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 17px;
+    }
+
+    .lien-he li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .quay-lai {
+      display: inline-block;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="gioi-thieu">
+      <h1><i class="fas fa-cookie-bite"></i> Giới thiệu Quán Ăn Vặt <span style="color:#e67e22;">CatShop</span></h1>
+      <p><strong>CatShop</strong> là điểm đến lý tưởng dành cho các tín đồ ăn vặt. Chúng tôi phục vụ đa dạng các món ngon hấp dẫn như:</p>
+      <ul>
+        <li>🍟 Khoai tây chiên giòn rụm</li>
+        <li> 
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <svg width="20" height="20" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="14" width="24" height="36" rx="5" fill="#FFD6A5" stroke="#8B5E3C" stroke-width="2"/>
+              <circle cx="26" cy="44" r="2" fill="#4B2E2B"/>
+              <circle cx="32" cy="44" r="2" fill="#4B2E2B"/>
+              <circle cx="38" cy="44" r="2" fill="#4B2E2B"/>
+              <rect x="30" y="2" width="4" height="12" rx="2" fill="#8B5E3C"/>
+            </svg>
+            Trà sữa đặc biệt
+          </span>
+        </li>
+        <li>🍗 Gà rán, nem chua rán đậm đà</li>
+        <li>🍧 Kem tươi, bánh ngọt đa dạng</li>
+      </ul>
+      <p>Không gian trẻ trung, giá cả sinh viên, phục vụ nhanh chóng – <strong>CatShop</strong> luôn sẵn sàng chào đón bạn!</p>
+    </div>
+
+    <div class="ban-do">
+      <h2><i class="fas fa-map-marker-alt"></i> Địa chỉ quán</h2>
+      <p>📍 123 Đường Vũ Lăng, Quận Cẩm Lệ, Đà Nẵng</p>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.0397080812697!2d108.21180441535586!3d16.047248888888942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142191df8b6bb71%3A0x9874562db77c7ab9!2zVmnDqm4gVnXhuq1uZywgQ8O0bSBM4bqhLCDEkMOgIE5hbmcsIFZpZXRuYW0!5e0!3m2!1svi!2s!4v1721043600000!5m2!1svi!2s" 
+        allowfullscreen 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="lien-he">
+      <h2><i class="fas fa-phone-alt"></i> Liên hệ</h2>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i> Địa chỉ: 123 Đường Vũ Lăng, Quận Cẩm Lệ, Đà Nẵng</li>
+        <li><i class="fas fa-phone"></i> SĐT: <a href="tel:0901234567">0901 234 567</a></li>
+        <li><i class="fas fa-envelope"></i> Gmail: <a href="mailto:catshop@gmail.com">catshop@gmail.com</a></li>
+        <li><i class="fab fa-facebook"></i> Facebook: <a href="https://facebook.com/catshopdanang" target="_blank">facebook.com/catshopdanang</a></li>
+        <li><i class="fas fa-comments"></i> Zalo: <a href="https://zalo.me/0901234567" target="_blank">0901 234 567</a></li>
+      </ul>
+    </div>
+
+    <a href="index.html" class="quay-lai">← Quay lại trang chủ</a>
+  </div>
+
+  <script src="a.js"></script>
+</body>
+</html>
